@@ -47,12 +47,6 @@ This engine provides landing pages with several notable features:
 
 ## TODO
 
-* Landing model
-* Lead model
-* Campaign model
-
-* Config class - GA tracker ID
-
 * Admin interface
   * Landings resource
   * Leads resource
@@ -61,5 +55,9 @@ This engine provides landing pages with several notable features:
 * Public interface
   * Landings resource
   * Leads resource
+  * Capture campaign when lead created
+
+* Config class - GA tracker ID
+* GA content experiment integration
 
 * Add reasonable size limits to db string columns
