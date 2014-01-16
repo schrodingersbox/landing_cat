@@ -12,3 +12,9 @@ gemspec
 
 # To use debugger
 # gem 'debugger'
+
+group :development, :test do
+  gem 'simplecov', '0.6.4', :require => false
+  gem 'spec_cat', :tag => 'v0.1.0', :git => 'https://github.com/schrodingersbox/spec_cat.git'
+  gem 'status_cat', :tag => 'v0.0.4', :git => 'https://github.com/schrodingersbox/status_cat.git'
+end

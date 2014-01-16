@@ -1,8 +1,24 @@
 .bundle/
 log/*.log
 pkg/
+
+# Ignore test dummy app transient files
 spec/dummy/db/*.sqlite3
-spec/dummy/db/*.sqlite3-journal
 spec/dummy/log/*.log
 spec/dummy/tmp/
 spec/dummy/.sass-cache
+
+# Ignore OS X files
+.DS_Store
+
+# Ignore RubyMine files
+/.idea
+
+# Ignore SimpleCov output
+/coverage
+
+# Ignore tmp files
+*.tmp
+
+# http://yehudakatz.com/2010/12/16/clarifying-the-roles-of-the-gemspec-and-gemfile/
+Gemfile.lock

@@ -21,3 +21,4 @@ load 'rails/tasks/engine.rake'
 
 Bundler::GemHelper.install_tasks
 
+load 'tasks/landing_cat.rake'
