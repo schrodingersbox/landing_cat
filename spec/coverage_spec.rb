@@ -14,7 +14,7 @@ describe 'coverage' do
     ].each do |dir|
       Dir.glob( File.join( ENGINE_ROOT, dir, '**', '*.{rb,erb,rake}' ) ) do |path|
         path = path.sub( /#{ENGINE_ROOT}\//, '' )
-        path.should have_a_spec
+        expect( path ).to have_a_spec
       end
     end
   end

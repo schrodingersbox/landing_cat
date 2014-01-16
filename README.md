@@ -39,3 +39,9 @@ This engine provides landing pages with several notable features:
  * [Better Specs](http://betterspecs.org)
 
 ## TODO
+
+* Integrate dummy app
+* Landing model
+* Lead model
+* Campaign model
+*
