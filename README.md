@@ -48,12 +48,12 @@ This engine provides landing pages with several notable features:
 ## TODO
 
 * Admin interface
-  * Landings resource
+  * Pages resource
   * Leads resource
   * Campaigns resource
 
 * Public interface
-  * Landings resource
+  * Pages resource
   * Leads resource
   * Capture campaign when lead created
 

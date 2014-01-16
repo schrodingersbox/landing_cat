@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails', '~> 4.0.2'
 
   s.add_development_dependency 'sqlite3'
-  s.add_development_dependency 'rspec-rails', '~>2.11.0'
-  s.add_development_dependency 'webrat', '~>0.7.3'
+  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'webrat'
 end
