@@ -26,6 +26,13 @@ This engine provides landing pages with several notable features:
 
 ## How To
 
+### Create your first landing page
+
+### Use Google Analytics content experiments
+
+### Add more attributes to a landing page
+
+
 
 ## Reference
 
@@ -40,8 +47,19 @@ This engine provides landing pages with several notable features:
 
 ## TODO
 
-* Integrate dummy app
 * Landing model
 * Lead model
 * Campaign model
-*
+
+* Config class - GA tracker ID
+
+* Admin interface
+  * Landings resource
+  * Leads resource
+  * Campaigns resource
+
+* Public interface
+  * Landings resource
+  * Leads resource
+
+* Add reasonable size limits to db string columns
