@@ -1,10 +1,12 @@
-require "spec_helper"
+require 'spec_helper'
 
-describe Admin::CampaignsController do
+describe LandingCat::Admin::CampaignsController do
   describe "routing" do
 
+    routes { LandingCat::Engine.routes }
+
     it "routes to #index" do
-      get("/admin/campaigns").should route_to("admin/campaigns#index")
+      expect( get('/admin/campaigns') ).to route_to('landing_cat/admin/campaigns#index')
     end
 
   end

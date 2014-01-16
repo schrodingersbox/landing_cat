@@ -1,0 +1,23 @@
+<h1>Listing leads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Created at</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leads.each do |lead| %>
+      <tr>
+        <th><%= lead.id %></th>
+        <th><%= lead.email %></th>
+        <th><%= lead.created_at %></th>
+        <td><%= link_to 'Show', admin_leads_path( lead ) %></td>
+        <td><%= link_to 'Destroy', admin_leads_path( lead ), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

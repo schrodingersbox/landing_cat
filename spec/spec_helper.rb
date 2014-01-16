@@ -12,6 +12,7 @@ require File.expand_path('../dummy/config/environment', __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 
+require 'factory_girl_rails'
 require 'spec_cat'
 
 ENGINE_ROOT = File.join(File.dirname(__FILE__), '..')
