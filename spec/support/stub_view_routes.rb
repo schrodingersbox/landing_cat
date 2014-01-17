@@ -1,6 +1,8 @@
 
 def stub_view_routes
 
+  view.stub( :admin_campaigns_path ).and_return( '/admin/campaigns' )
+
   view.stub( :admin_lead_path ).and_return( '/admin/lead' )
   view.stub( :admin_leads_path ).and_return( '/admin/leads' )
 

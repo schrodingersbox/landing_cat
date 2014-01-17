@@ -49,8 +49,9 @@ It is currently incomplete.
 
 ## TODO
 
-* Populate /admin/lead/show
-* /admin/index action?
+* Admin controller
+  * Base class for all admin controllers
+  * /admin/index action
 
 * Public interface
   * Pages resource
@@ -65,5 +66,8 @@ It is currently incomplete.
   * Unique lead email?  Support resend or re-trigger if user re-enters
 
 * Improve admin rendering
+  * Link /admin/leads/show to page and campaign
+  * div -> fieldset
+  * general ugliness
 * Externalize i18n strings
 * Add reasonable size limits to db string columns

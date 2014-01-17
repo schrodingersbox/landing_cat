@@ -1,6 +1,10 @@
 require 'spec_helper'
 
+include LandingCat
+
 describe LandingCat::Page do
+
+  let( :page ) { FactoryGirl.create( :page ) }
 
   it ( 'has many leads' ) { should have_many( :leads ) }
 
@@ -22,6 +26,14 @@ describe LandingCat::Page do
       should have_db_index( :name ).unique( true )
     end
 
+  end
+
+  it 'validates the uniqueness of name' do
+    expect( page ).to be_present
+
+    test = Page.new( :name => page.name )
+    expect( test.valid? ).to be_false
+    expect( test.errors_on( :name ) ).to be_present
   end
 
 end
