@@ -58,7 +58,7 @@ describe LandingCat::Admin::PagesController do
 
       it 'redirects to the created page' do
         post :create, { :page => valid_attributes }
-        expect( response ).to redirect_to( admin_page_path( Page.last ) )
+        expect( response ).to redirect_to( page_path( Page.last ) )
       end
     end
 
@@ -97,7 +97,7 @@ describe LandingCat::Admin::PagesController do
 
       it 'redirects to the page' do
         put :update, { :id => page.to_param, :page => valid_attributes }
-        expect( response ).to redirect_to( admin_page_path( page ) )
+        expect( response ).to redirect_to( page_path( page ) )
       end
     end
 

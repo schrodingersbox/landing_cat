@@ -1,2 +1,16 @@
-<i>Landing page goes here</i>
+<h1><%= @page.heading %></h1>
+
+<p>
+  <%= @page.body %>
+</p>
+
+<p>
+  <%= @page.prompt %>
+</p>
+<%= form_for( LandingCat::Lead.new ) do |f| %>
+    <%= f.text_field :email, :size => 32 %>
+    <%= f.submit( @page.call_to_action ) %>
+<% end %>
+
+
 

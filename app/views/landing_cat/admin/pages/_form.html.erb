@@ -45,8 +45,13 @@
     </div>
 
     <div class="form-group">
-      <%= f.label( :heading ) %>
+      <%= f.label( :body ) %>
       <%= f.text_area( :body, :size => '60x10' ) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label( :prompt ) %>
+      <%= f.text_field( :prompt, :size => 64) %>
     </div>
 
     <div class="form-group">

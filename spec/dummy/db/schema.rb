@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140117032040) do
+ActiveRecord::Schema.define(version: 20140117072653) do
 
   create_table "landing_cat_campaigns", force: true do |t|
     t.string   "utmcsr"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140117032040) do
     t.boolean "b",              default: false
     t.boolean "multivariate",   default: false
     t.string  "heading"
+    t.string  "prompt"
     t.string  "call_to_action"
     t.text    "body"
   end

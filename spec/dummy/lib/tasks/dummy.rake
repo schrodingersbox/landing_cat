@@ -6,8 +6,9 @@ namespace :dummy do
     Rake::Task[ 'db:create' ].invoke
 
     `rm -r db/migrate/*`
-
     Rake::Task[ 'landing_cat:install:migrations' ].invoke
+    `git add db/migrate/*`
+
     [ 'development', 'test' ].each do |env|
       puts `rake db:migrate RAILS_ENV=#{env}`
     end

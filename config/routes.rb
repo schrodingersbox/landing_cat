@@ -4,9 +4,9 @@ LandingCat::Engine.routes.draw do
   resources :leads, :only => :create
   resources :pages, :only => :show
 
-  namespace :admin do
-    get :index
+  get :admin, :to => 'admin#index'
 
+  namespace :admin do
     resources :campaigns, :only => :index
     resources :leads, :only => [ :index, :show, :destroy ]
     resources :pages

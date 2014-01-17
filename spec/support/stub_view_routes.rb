@@ -11,8 +11,10 @@ def stub_view_routes
   view.stub( :edit_admin_page_path ).and_return( '/landing_cat/admin/pages/edit' )
   view.stub( :new_admin_page_path ).and_return( '/landing_cat/admin/pages/new' )
 
+  view.stub( :leads_path ).and_return( '/landing_cat/leads' )
 
   view.stub( :edit_page_path ).and_return( '/landing_cat/pages/edit' )
+  view.stub( :page_path ).and_return( '/landing_cat/page' )
   view.stub( :pages_path ).and_return( '/landing_cat/pages' )
 
 end

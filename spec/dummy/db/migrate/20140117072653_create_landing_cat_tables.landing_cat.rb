@@ -32,6 +32,7 @@ class CreateLandingCatTables < ActiveRecord::Migration
       t.boolean :b, :default => false
       t.boolean :multivariate, :default => false
       t.string :heading
+      t.string :prompt
       t.string :call_to_action
       t.text :body
 

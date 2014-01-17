@@ -50,14 +50,13 @@ It is currently incomplete.
 ## TODO
 
 * Public interface
-  * Pages resource
-  * Leads resource
   * Capture campaign when lead created
 
 * Config class - GA tracker ID
 * GA content experiment integration
 
 * Validation
+  * Enforce only one of pages [a, b, multivariate] can be checked at a time.  Maybe a single column with 4 states?
   * Unique lead email?  Support resend or re-trigger if user re-enters
 
 * Rake task to externalize view files, like Devise
