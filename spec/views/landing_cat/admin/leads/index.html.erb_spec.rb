@@ -5,8 +5,8 @@ describe "landing_cat/admin/leads/index" do
   let( :lead ) { FactoryGirl.build( :lead ) }
 
   before(:each) do
+    stub_view_routes
     assign( :leads, [ lead, lead ] )
-    view.stub( :admin_leads_path ).and_return( '/admin/leads' )
   end
 
   it "renders a list of leads" do

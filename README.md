@@ -5,6 +5,8 @@ This engine provides landing pages with several notable features:
   * Captures ad campaign information
   * Integrates Google Analytics content experiments
 
+It is currently incomplete.
+
 ## Getting Started
 
 1. Add this to your `Gemfile` and `bundle install`
@@ -32,7 +34,7 @@ This engine provides landing pages with several notable features:
 
 ### Add more attributes to a landing page
 
-
+### Tag users with the ad campaign they came through
 
 ## Reference
 
@@ -47,10 +49,8 @@ This engine provides landing pages with several notable features:
 
 ## TODO
 
-* Admin interface
-  * Pages resource
-  * Leads resource
-  * Campaigns resource
+* Populate /admin/lead/show
+* /admin/index action?
 
 * Public interface
   * Pages resource
@@ -60,4 +60,10 @@ This engine provides landing pages with several notable features:
 * Config class - GA tracker ID
 * GA content experiment integration
 
+* Validation
+  * Unique page.name - index & validation
+  * Unique lead email?  Support resend or re-trigger if user re-enters
+
+* Improve admin rendering
+* Externalize i18n strings
 * Add reasonable size limits to db string columns

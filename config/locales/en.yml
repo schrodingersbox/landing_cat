@@ -1,0 +1,9 @@
+en:
+  name: Name
+  experiment_id: Experiment ID
+  a: A
+  b: B
+  multivariate: Multivariate
+  heading: Heading
+  body: Body
+  call_to_action: Call To Action

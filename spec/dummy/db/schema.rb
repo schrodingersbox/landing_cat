@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140116084939) do
+ActiveRecord::Schema.define(version: 20140117032040) do
 
   create_table "landing_cat_campaigns", force: true do |t|
     t.string   "utmcsr"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140116084939) do
     t.datetime "created_at"
   end
 
-  add_index "landing_cat_campaigns", ["utmcsr", "utmcmd", "utmctr", "utmcct", "utmccn"], name: "everything"
+  add_index "landing_cat_campaigns", ["utmcsr", "utmcmd", "utmctr", "utmcct", "utmccn"], name: "index_landing_cat_campaigns_on_everything"
 
   create_table "landing_cat_leads", force: true do |t|
     t.string   "email",       null: false
@@ -37,16 +37,16 @@ ActiveRecord::Schema.define(version: 20140116084939) do
   add_index "landing_cat_leads", ["page_id"], name: "index_landing_cat_leads_on_page_id"
 
   create_table "landing_cat_pages", force: true do |t|
-    t.string  "name",                          null: false
+    t.string  "name",                           null: false
     t.string  "experiment_id"
-    t.boolean "a",             default: false
-    t.boolean "b",             default: false
-    t.boolean "multivariate",  default: false
+    t.boolean "a",              default: false
+    t.boolean "b",              default: false
+    t.boolean "multivariate",   default: false
     t.string  "heading"
-    t.string  "action"
+    t.string  "call_to_action"
     t.text    "body"
   end
 
-  add_index "landing_cat_pages", ["name"], name: "index_landing_cat_pages_on_name"
+  add_index "landing_cat_pages", ["name"], name: "index_landing_cat_pages_on_name", unique: true
 
 end

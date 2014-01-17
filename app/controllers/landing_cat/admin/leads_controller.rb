@@ -15,19 +15,19 @@ module LandingCat
       # DELETE /leads/1
       def destroy
         @lead.destroy
-        redirect_to admin_leads_url, notice: 'Lead was successfully destroyed.'
+        redirect_to admin_leads_path, notice: 'Lead was successfully destroyed.'
       end
 
-      private
-        # Use callbacks to share common setup or constraints between actions.
-        def set_lead
-          @lead = Lead.find(params[:id])
-        end
+    private
 
-        # Only allow a trusted parameter "white list" through.
-        def lead_params
-          params[:lead]
-        end
+      def set_lead
+        @lead = Lead.find(params[:id])
+      end
+
+      def lead_params
+        params[ :lead ].permit( Lead.new.attributes.keys ) if params[ :lead ]
+      end
+
     end
   end
 end

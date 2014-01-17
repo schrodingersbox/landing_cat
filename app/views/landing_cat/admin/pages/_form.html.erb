@@ -1,0 +1,60 @@
+<% url = ( @page.new_record? ? admin_pages_path : admin_page_path( @page ) ) %>
+<% method = ( @page.new_record? ? :post : :put ) %>
+
+<%= form_for( @page, :url => url, :method => method ) do |f| %>
+  <% if @page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+      <ul>
+      <% @page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label( :name ) %>
+    <%= f.text_field( :name, :size => 32 ) %>
+  </div>
+
+    <div class="form-group">
+      <%= f.label( :experiment_id ) %>
+      <%= f.text_field( :experiment_id, :size => 16 ) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label( :a ) %>
+      <%= f.check_box( :a ) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label( :b ) %>
+      <%= f.check_box( :b ) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label( :multivariate ) %>
+      <%= f.check_box( :multivariate ) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label( :heading ) %>
+      <%= f.text_field( :heading, :size => 64 ) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label( :heading ) %>
+      <%= f.text_area( :body, :size => '60x10' ) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label( :call_to_action ) %>
+      <%= f.text_field( :call_to_action, :size => 32 ) %>
+    </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -4,16 +4,16 @@ module LandingCat
 
       # GET /campaigns
       def index
-        @campaign = LandingCat::Campaign.new( campaign_params )
-        @campaigns = LandingCat::Campaign.all
+        @campaign = Campaign.new( campaign_params )
+        @campaigns = Campaign.all
       end
 
-      private
+    private
 
-        # Only allow a trusted parameter "white list" through.
-        def campaign_params
-          params.require(:campaign).permit(LandingCat::Campaign.attributes.keys ) if params[ :campaign ]
-        end
+      def campaign_params
+        params[ :campaign ].permit( Campaign.new.attributes.keys ) if params[ :campaign ]
+      end
+
     end
   end
 end

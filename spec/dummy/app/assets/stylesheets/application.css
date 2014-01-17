@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+
+.form-group label {
+    width: 200px;
+    text-align: right;
+}

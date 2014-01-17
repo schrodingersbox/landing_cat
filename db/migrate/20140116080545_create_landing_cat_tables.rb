@@ -10,7 +10,7 @@ class CreateLandingCatTables < ActiveRecord::Migration
       t.boolean :utmgclid
       t.datetime :created_at
 
-      t.index [ :utmcsr, :utmcmd, :utmctr, :utmcct, :utmccn ], :name => :everything
+      t.index [ :utmcsr, :utmcmd, :utmctr, :utmcct, :utmccn ], :name => :index_landing_cat_campaigns_on_everything
     end
 
     create_table :landing_cat_leads do |t|
@@ -31,10 +31,10 @@ class CreateLandingCatTables < ActiveRecord::Migration
       t.boolean :b, :default => false
       t.boolean :multivariate, :default => false
       t.string :heading
-      t.string :action
+      t.string :call_to_action
       t.text :body
 
-      t.index :name
+      t.index :name, :unique => true
     end
 
   end
