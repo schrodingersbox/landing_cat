@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140117084542) do
+ActiveRecord::Schema.define(version: 20140117100439) do
 
   create_table "landing_cat_campaigns", force: true do |t|
     t.string   "utmcsr"
@@ -33,19 +33,17 @@ ActiveRecord::Schema.define(version: 20140117084542) do
   end
 
   add_index "landing_cat_leads", ["campaign_id"], name: "index_landing_cat_leads_on_campaign_id"
-  add_index "landing_cat_leads", ["email"], name: "index_landing_cat_leads_on_email"
+  add_index "landing_cat_leads", ["email"], name: "index_landing_cat_leads_on_email", unique: true
   add_index "landing_cat_leads", ["page_id"], name: "index_landing_cat_leads_on_page_id"
 
   create_table "landing_cat_pages", force: true do |t|
-    t.string  "name",                           null: false
-    t.string  "experiment_id"
-    t.boolean "a",              default: false
-    t.boolean "b",              default: false
-    t.boolean "multivariate",   default: false
-    t.string  "heading"
-    t.string  "prompt"
-    t.string  "call_to_action"
-    t.text    "body"
+    t.string "name",                       null: false
+    t.string "experiment_id",   limit: 64
+    t.string "experiment_type", limit: 1
+    t.string "heading"
+    t.string "prompt"
+    t.string "call_to_action"
+    t.text   "body"
   end
 
   add_index "landing_cat_pages", ["name"], name: "index_landing_cat_pages_on_name", unique: true

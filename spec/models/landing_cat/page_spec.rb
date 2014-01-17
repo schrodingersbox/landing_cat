@@ -14,9 +14,7 @@ describe LandingCat::Page do
       should have_db_column( :id ).of_type( :integer )
       should have_db_column( :name ).of_type( :string )
       should have_db_column( :experiment_id ).of_type( :string )
-      should have_db_column( :a ).of_type( :boolean )
-      should have_db_column( :b ).of_type( :boolean )
-      should have_db_column( :multivariate ).of_type( :boolean )
+      should have_db_column( :experiment_type ).of_type( :string )
       should have_db_column( :heading ).of_type( :string )
       should have_db_column( :prompt ).of_type( :string )
       should have_db_column( :call_to_action ).of_type( :string )
@@ -27,6 +25,12 @@ describe LandingCat::Page do
       should have_db_index( :name ).unique( true )
     end
 
+  end
+
+  it 'validates the presence of name' do
+    test = Page.new()
+    expect( test.valid? ).to be_false
+    expect( test.errors_on( :name ) ).to be_present
   end
 
   it 'validates the uniqueness of name' do

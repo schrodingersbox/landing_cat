@@ -19,17 +19,15 @@ class CreateLandingCatTables < ActiveRecord::Migration
       t.integer :page_id
       t.datetime :created_at
 
-      t.index :email
+      t.index :email, :unique => true
       t.index :page_id
       t.index :campaign_id
     end
 
     create_table :landing_cat_pages do |t|
       t.string  :name, :null => false
-      t.string :experiment_id
-      t.boolean :a, :default => false
-      t.boolean :b, :default => false
-      t.boolean :multivariate, :default => false
+      t.string :experiment_id, :limit => 64
+      t.string :experiment_type, :limit => 1
       t.string :heading
       t.string :prompt
       t.string :call_to_action

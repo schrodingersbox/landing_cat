@@ -9,7 +9,7 @@ LandingCat::Engine.routes.draw do
   namespace :admin do
     resources :campaigns, :only => :index
     resources :leads, :only => [ :index, :show, :destroy ]
-    resources :pages
+    resources :pages, :except => [ :show ]
   end
 
   get '/:name', :to => 'pages#show', :as => :shortcut

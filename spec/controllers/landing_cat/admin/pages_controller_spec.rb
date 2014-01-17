@@ -21,13 +21,6 @@ describe LandingCat::Admin::PagesController do
     end
   end
 
-  describe 'GET show' do
-    it 'assigns the requested page as @page' do
-      get :show, {:id => page.to_param }
-      expect( assigns( :page ) ).to eq( page )
-    end
-  end
-
   describe 'GET new' do
     it 'assigns a new page as @page' do
       get :new
@@ -56,9 +49,9 @@ describe LandingCat::Admin::PagesController do
         expect( assigns( :page ) ).to be_persisted
       end
 
-      it 'redirects to the created page' do
+      it 'redirects to the page list' do
         post :create, { :page => valid_attributes }
-        expect( response ).to redirect_to( page_path( Page.last ) )
+        expect( response ).to redirect_to( admin_pages_path )
       end
     end
 
@@ -95,9 +88,9 @@ describe LandingCat::Admin::PagesController do
         expect( assigns( :page ) ).to eq(page)
       end
 
-      it 'redirects to the page' do
+      it 'redirects to the page list' do
         put :update, { :id => page.to_param, :page => valid_attributes }
-        expect( response ).to redirect_to( page_path( page ) )
+        expect( response ).to redirect_to( admin_pages_path )
       end
     end
 

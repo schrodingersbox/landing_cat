@@ -6,6 +6,7 @@ describe LandingCat::LeadsController do
 
   routes { LandingCat::Engine.routes }
 
+  let( :lead ) { FactoryGirl.create( :lead ) }
   let( :cookie ) { SpecCat.read( 'spec/fixtures/cookie.txt' ) }
   let( :cookies ) { { Campaign::UTMZ => cookie } }
   let(:valid_attributes) { { :email => 'foo@bar.com'  } }
@@ -16,6 +17,13 @@ describe LandingCat::LeadsController do
       expect {
         post :create, {:lead => valid_attributes}
       }.to change(Lead, :count).by(1)
+    end
+
+    it 'updates an existing Lead' do
+      expect( lead ).to be_present
+      expect( Lead.count ).to eql( 1 )
+      post :create, {:lead => { :email => lead.email } }
+      expect( Lead.count ).to eql( 1 )
     end
 
     it 'assigns a campaign' do

@@ -13,10 +13,6 @@ describe LandingCat::Admin::PagesController do
       expect( get('/admin/pages/new') ).to route_to('landing_cat/admin/pages#new')
     end
 
-    it 'routes to #show' do
-      expect( get('/admin/pages/1') ).to route_to('landing_cat/admin/pages#show', :id => '1')
-    end
-
     it 'routes to #edit' do
       expect( get('/admin/pages/1/edit') ).to route_to('landing_cat/admin/pages#edit', :id => '1')
     end
