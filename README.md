@@ -49,10 +49,6 @@ It is currently incomplete.
 
 ## TODO
 
-* Admin controller
-  * Base class for all admin controllers
-  * /admin/index action
-
 * Public interface
   * Pages resource
   * Leads resource
@@ -62,8 +58,9 @@ It is currently incomplete.
 * GA content experiment integration
 
 * Validation
-  * Unique page.name - index & validation
   * Unique lead email?  Support resend or re-trigger if user re-enters
+
+* Rake task to externalize view files, like Devise
 
 * Improve admin rendering
   * Link /admin/leads/show to page and campaign
