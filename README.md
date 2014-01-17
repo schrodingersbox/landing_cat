@@ -49,8 +49,9 @@ It is currently incomplete.
 
 ## TODO
 
-* Public interface
-  * Capture campaign when lead created
+* Default route of /landing_cat/:id to /page/show
+* Underscore convert page name
+* Use page name as ID in URL
 
 * Config class - GA tracker ID
 * GA content experiment integration
@@ -62,8 +63,10 @@ It is currently incomplete.
 * Rake task to externalize view files, like Devise
 
 * Improve admin rendering
-  * Link /admin/leads/show to page and campaign
-  * div -> fieldset
+  * Add page and campaign to /admin/leads/show
+  * div -> fieldset in _forms
   * general ugliness
 * Externalize i18n strings
 * Add reasonable size limits to db string columns
+
+* Leads by channel report

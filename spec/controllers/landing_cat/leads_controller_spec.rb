@@ -6,16 +6,23 @@ describe LandingCat::LeadsController do
 
   routes { LandingCat::Engine.routes }
 
-  # This should return the minimal set of attributes required to create a valid
-  # Lead. As you add validations to Lead, be sure to
-  # adjust the attributes here as well.
+  let( :cookie ) { SpecCat.read( 'spec/fixtures/cookie.txt' ) }
+  let( :cookies ) { { Campaign::UTMZ => cookie } }
   let(:valid_attributes) { { :email => 'foo@bar.com'  } }
 
   describe 'POST create' do
+
     it 'creates a new Lead' do
       expect {
         post :create, {:lead => valid_attributes}
       }.to change(Lead, :count).by(1)
+    end
+
+    it 'assigns a campaign' do
+      request.cookies[ Campaign::UTMZ ] = cookie
+      post :create, {:lead => valid_attributes}
+      expect( Lead.last.campaign ).to be_present
+      expect_campaign_to_match_cookie( Lead.last.campaign )
     end
 
     it 'assigns a newly created lead as @lead' do

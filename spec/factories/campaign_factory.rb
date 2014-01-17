@@ -6,7 +6,7 @@ FactoryGirl.define do
     utmctr  '*utmctr*'
     utmcct  '*utmcct*'
     utmccn  '*utmccn*'
-    utmgclid false
+    utmgclid '*utmgclid*'
   end
 
 end

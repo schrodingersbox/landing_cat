@@ -3,7 +3,8 @@ module LandingCat
 
     # POST /leads
     def create
-      @lead = Lead.new(lead_params)
+      @lead = Lead.new( lead_params )
+      @lead.campaign = Campaign.find_or_create_by_cookies( cookies )
       @lead.save
     end
 
