@@ -1,6 +1,8 @@
 LandingCat::Engine.routes.draw do
   root :to => 'admin#index'
 
+  resources :pages, :only => :show
+
   namespace :admin do
     get :index
 
