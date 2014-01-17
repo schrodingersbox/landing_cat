@@ -10,7 +10,6 @@ module LandingCat
 
   private
 
-    # Only allow a trusted parameter "white list" through.
     def lead_params
       params[ :lead ].permit( :email )
     end

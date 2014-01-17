@@ -11,10 +11,17 @@ describe LandingCat::PagesController do
   end
 
   describe "GET show" do
+
     it "assigns the requested page as @page" do
       get :show, { :id => page.to_param }
       expect( assigns( :page ) ).to eq( page )
     end
+
+    it "accepts name as a lookup parameter" do
+      get :show, { :name => page.name }
+      expect( assigns( :page ) ).to eq( page )
+    end
+
   end
 
 end

@@ -11,4 +11,6 @@ LandingCat::Engine.routes.draw do
     resources :leads, :only => [ :index, :show, :destroy ]
     resources :pages
   end
+
+  get '/:name', :to => 'pages#show', :as => :shortcut
 end

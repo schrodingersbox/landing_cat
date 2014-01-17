@@ -30,6 +30,8 @@ It is currently incomplete.
 
 ### Create your first landing page
 
+NOTE: Page name is used in URL and user visible
+
 ### Use Google Analytics content experiments
 
 ### Add more attributes to a landing page
@@ -48,10 +50,6 @@ It is currently incomplete.
  * [Better Specs](http://betterspecs.org)
 
 ## TODO
-
-* Default route of /landing_cat/:id to /page/show
-* Underscore convert page name
-* Use page name as ID in URL
 
 * Config class - GA tracker ID
 * GA content experiment integration

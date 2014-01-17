@@ -37,4 +37,23 @@ describe LandingCat::Page do
     expect( test.errors_on( :name ) ).to be_present
   end
 
+  describe 'before save' do
+
+    it 'underscores the name' do
+      expect( page ).to receive( :underscore_name )
+      page.save
+    end
+
+  end
+
+  describe '#underscore_name' do
+
+    it 'underscores the name' do
+      page.name = 'This is a test'
+      page.underscore_name
+      expect( page.name ).to eql( 'this_is_a_test' )
+    end
+
+  end
+
 end

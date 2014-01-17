@@ -17,4 +17,6 @@ def stub_view_routes
   view.stub( :page_path ).and_return( '/landing_cat/page' )
   view.stub( :pages_path ).and_return( '/landing_cat/pages' )
 
+  view.stub( :shortcut_path ).and_return( '/landing_cat' )
+
 end
