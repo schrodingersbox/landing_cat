@@ -11,5 +11,9 @@ module LandingCat
       self.name = self.name.underscore.gsub( /\s/, '_' )
     end
 
+    def a?
+      return experiment_type == 'a'
+    end
+
   end
 end

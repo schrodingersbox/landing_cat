@@ -51,10 +51,14 @@ NOTE: Page name is used in URL and user visible
 
 ## TODO
 
-* Config class - GA tracker ID
+* GA partial helpers
 * GA content experiment integration
 
+* Mailer for new leads?
+
 * Rake task to externalize view files, like Devise
+
+* Add page param to identify template to use
 
 * Improve admin rendering
   * Add page and campaign to /admin/leads/show
@@ -64,3 +68,5 @@ NOTE: Page name is used in URL and user visible
 * Add reasonable size limits to db string columns
 
 * Leads by channel report
+
+* Should GA integration move to split_cat, or it's own engine?

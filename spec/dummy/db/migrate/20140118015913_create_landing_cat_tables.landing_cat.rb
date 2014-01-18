@@ -28,6 +28,7 @@ class CreateLandingCatTables < ActiveRecord::Migration
     create_table :landing_cat_pages do |t|
       t.string  :name, :null => false
       t.string :experiment_id, :limit => 64
+      t.string :experiment_key, :limit => 64
       t.string :experiment_type, :limit => 1
       t.string :heading
       t.string :prompt

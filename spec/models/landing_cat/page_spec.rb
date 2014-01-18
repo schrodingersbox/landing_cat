@@ -14,6 +14,7 @@ describe LandingCat::Page do
       should have_db_column( :id ).of_type( :integer )
       should have_db_column( :name ).of_type( :string )
       should have_db_column( :experiment_id ).of_type( :string )
+      should have_db_column( :experiment_key ).of_type( :string )
       should have_db_column( :experiment_type ).of_type( :string )
       should have_db_column( :heading ).of_type( :string )
       should have_db_column( :prompt ).of_type( :string )
@@ -56,6 +57,26 @@ describe LandingCat::Page do
       page.name = 'This is a test'
       page.underscore_name
       expect( page.name ).to eql( 'this_is_a_test' )
+    end
+
+  end
+
+
+  describe '#a?' do
+
+    it 'returns true if experiment_type is A' do
+      page.experiment_type = 'a'
+      expect( page.a? ).to be_true
+    end
+
+    it 'returns false if experiment_type is not A' do
+      page.experiment_type = 'b'
+      expect( page.a? ).to be_false
+    end
+
+    it 'returns false if experiment_type is nil' do
+      page.experiment_type = nil
+      expect( page.a? ).to be_false
     end
 
   end

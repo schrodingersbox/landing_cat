@@ -26,7 +26,7 @@
 
     <div class="form-group">
       <%= f.label( :experiment_type ) %>
-      <%= f.select( :experiment_type, options_for_select( [ [ '', '' ], [ 'A', 'a' ], [ 'B', 'b' ], [ 'Multivariate', 'm' ] ], @page.experiment_type ) ) %>
+      <%= f.select( :experiment_type, options_for_select( [ nil, 'a', 'b' ], @page.experiment_type ) ) %>
     </div>
 
     <div class="form-group">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140117100439) do
+ActiveRecord::Schema.define(version: 20140118015913) do
 
   create_table "landing_cat_campaigns", force: true do |t|
     t.string   "utmcsr"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140117100439) do
   create_table "landing_cat_pages", force: true do |t|
     t.string "name",                       null: false
     t.string "experiment_id",   limit: 64
+    t.string "experiment_key",  limit: 64
     t.string "experiment_type", limit: 1
     t.string "heading"
     t.string "prompt"
