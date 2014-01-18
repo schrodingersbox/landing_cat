@@ -66,13 +66,12 @@ NOTE: Page name is used in URL and user visible
 ## TODO
 
 * split-cat integration
-  * hypothesis creation / update
-  * add goal(s)
-  * tag users with token cookie
   * select hypothesis and show page
+  * tag users with token cookie
   * record goals
   * manual testing
 
+* Capture user agent for leads
 * Mailer for new leads?
 
 * Rake task to externalize view files, like Devise

@@ -4,7 +4,8 @@ describe LandingCat::PagesController do
 
   routes { LandingCat::Engine.routes }
 
-  let( :page ) { FactoryGirl.create( :page ) }
+  let( :experiment ) { FactoryGirl.create( :experiment ) }
+  let( :page ) { FactoryGirl.create( :page, :experiment => experiment ) }
 
   before( :each ) do
     expect( page ).to be_present

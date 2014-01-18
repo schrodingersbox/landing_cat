@@ -14,5 +14,5 @@ LandingCat::Engine.routes.draw do
     mount SplitCat::Engine => '/split_cat'
   end
 
-  get '/:name', :to => 'pages#show', :as => :shortcut
+  get '/:name', :to => 'experiments#show', :as => :shortcut
 end

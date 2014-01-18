@@ -6,9 +6,10 @@ describe LandingCat::Admin::PagesController do
 
   routes { LandingCat::Engine.routes }
 
-  let( :page ) { FactoryGirl.create( :page ) }
+  let( :experiment ) { FactoryGirl.create( :experiment ) }
+  let( :page ) { FactoryGirl.create( :page, :experiment => experiment ) }
 
-  let( :valid_attributes ) { { 'experiment_type' => 'c' } }
+  let( :valid_attributes ) { { 'experiment_type' => 'c', :experiment_id => experiment.id.to_s } }
 
   before( :each ) do
     expect( page ).to be_present
@@ -75,17 +76,13 @@ describe LandingCat::Admin::PagesController do
   describe 'PUT update' do
     describe 'with valid params' do
       it 'updates the requested page' do
-        # Assuming there are no other pages in the database, this
-        # specifies that the Page created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Page.any_instance.should_receive(:update).with( valid_attributes )
+        Page.any_instance.should_receive(:update).with( hash_including( valid_attributes ) )
         put :update, {:id => page.to_param, :page => valid_attributes }
       end
 
       it 'assigns the requested page as @page' do
         put :update, { :id => page.to_param, :page => valid_attributes }
-        expect( assigns( :page ) ).to eq(page)
+        expect( assigns( :page ) ).to eq( page )
       end
 
       it 'redirects to the page list' do

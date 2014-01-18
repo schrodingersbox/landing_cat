@@ -28,6 +28,17 @@ describe LandingCat::Page do
 
   end
 
+  it 'validates the presence of experiment id'
+  it 'validates the presence of experiment type'
   it 'validates the uniqueness of experiment type, scoped by experiment id'
+
+  it 'updates the experiment after save'
+
+  describe '#update_experiment' do
+    it 'tolerates a nil experiment'
+    it 'creates a hypothesis if one does not exist'
+    it 'updates the weight of the hypothesis'
+    it 'creates a goal if one foes not exist'
+  end
 
 end
