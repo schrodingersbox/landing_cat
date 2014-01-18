@@ -1,4 +1,6 @@
-<%= google_analytics_split( @page.experiment_key) if @page.a? %>
+<% content_for :head do %>
+    <%= google_analytics_split( @page.experiment_key) if @page.a? %>
+<% end %>
 
 <h1><%= @page.heading %></h1>
 

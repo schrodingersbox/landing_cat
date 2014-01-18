@@ -22,7 +22,11 @@ It is currently incomplete.
         rake meter_cat:install:migrations
         rake db:migrate
 
-4. Restart your Rails server
+4. Add the following to your layout, just after the '<head>' tag
+
+    <%= yield( :head ) %>
+
+5. Restart your Rails server
 
 6.  Visit http://yourapp/landing_cat in a browser
 
