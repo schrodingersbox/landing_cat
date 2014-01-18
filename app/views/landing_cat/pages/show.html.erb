@@ -1,7 +1,3 @@
-<% content_for :head do %>
-    <%= google_analytics_split( @page.experiment_key) if @page.a? %>
-<% end %>
-
 <h1><%= @page.heading %></h1>
 
 <p>
@@ -15,8 +11,6 @@
     <%= f.text_field :email, :size => 32 %>
     <%= f.submit( @page.call_to_action ) %>
 <% end %>
-
-<%= google_analytics_tracking %>
 
 
 

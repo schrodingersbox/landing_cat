@@ -2,8 +2,6 @@ require 'spec_helper'
 
 describe 'landing_cat/pages/show' do
 
-  helper LandingCat::GoogleAnalyticsHelper
-
   let( :page ) { FactoryGirl.build( :page ) }
 
   before(:each) do

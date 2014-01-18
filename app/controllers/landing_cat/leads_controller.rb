@@ -1,8 +1,6 @@
 module LandingCat
   class LeadsController < ApplicationController
 
-    helper LandingCat::GoogleAnalyticsHelper
-
     # POST /leads
     def create
       @lead = Lead.find_or_create_by( lead_params )

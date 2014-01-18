@@ -1,8 +1,6 @@
 module LandingCat
   class PagesController < ApplicationController
 
-    helper LandingCat::GoogleAnalyticsHelper
-
     before_action :set_page, only: [ :show ]
 
     # GET /pages/1

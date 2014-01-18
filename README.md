@@ -55,7 +55,6 @@ NOTE: Page name is used in URL and user visible
 
 ## TODO
 
-* GA partial helpers
 * GA content experiment integration
 
 * Mailer for new leads?
