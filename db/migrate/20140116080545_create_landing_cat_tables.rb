@@ -25,16 +25,15 @@ class CreateLandingCatTables < ActiveRecord::Migration
     end
 
     create_table :landing_cat_pages do |t|
-      t.string  :name, :null => false
-      t.string :experiment_id, :limit => 64
-      t.string :experiment_key, :limit => 64
+      t.integer :experiment_id
+      t.integer :weight
       t.string :experiment_type, :limit => 1
       t.string :heading
       t.string :prompt
       t.string :call_to_action
       t.text :body
 
-      t.index :name, :unique => true
+      t.index [ :experiment_id, :experiment_type ], :unique => true
     end
 
   end

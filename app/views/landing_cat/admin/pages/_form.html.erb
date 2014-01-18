@@ -14,24 +14,20 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label( :name ) %>
-    <%= f.text_field( :name, :size => 32 ) %>
-  </div>
-
     <div class="form-group">
       <%= f.label( :experiment_id ) %>
-      <%= f.text_field( :experiment_id, :size => 16 ) %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label( :experiment_key ) %>
-      <%= f.text_field( :experiment_key, :size => 16 ) %>
+      <% options = SplitCat::Experiment.order( 'name asc').pluck( :name, :id  ) %>
+      <%= f.select( :experiment_id, options_for_select( options, @page.experiment_id ) ) %>
     </div>
 
     <div class="form-group">
       <%= f.label( :experiment_type ) %>
-      <%= f.select( :experiment_type, options_for_select( [ nil, 'a', 'b' ], @page.experiment_type ) ) %>
+      <%= f.select( :experiment_type, options_for_select( [ 'a', 'b' ], @page.experiment_type ) ) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label( :weight ) %>
+      <%= f.text_field( :weight, :size => 4 ) %>
     </div>
 
     <div class="form-group">

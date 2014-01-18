@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe 'landing_cat/admin/pages/index' do
 
-  let( :page ) { FactoryGirl.build( :page ) }
+  let( :experiment ) { SplitCat::Experiment.new( :name => 'foo' ) }
+  let( :page ) { FactoryGirl.build( :page, :experiment => experiment ) }
 
   before(:each) do
     stub_view_routes

@@ -22,4 +22,5 @@ def stub_view_routes
 
   view.stub( :shortcut_path ).and_return( '/landing_cat' )
 
+  view.stub( :admin_split_cat_path ).and_return( '/landing_cat/admin/split_cat' )
 end

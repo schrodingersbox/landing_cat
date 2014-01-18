@@ -5,7 +5,7 @@ module LandingCat
 
       # GET /pages
       def index
-        @pages = Page.all.order( 'id desc' )
+        @pages = Page.all.order( 'experiment_id desc, experiment_type asc' ).includes( :experiment  )
       end
 
       # GET /pages/new
@@ -51,7 +51,7 @@ module LandingCat
 
         # Only allow a trusted parameter "white list" through.
         def page_params
-          params[ :page ].permit( Page.new.attributes.keys ) if params[ :page ]
+          params[ :page ].permit( Page.new.attributes.keys )
         end
     end
   end

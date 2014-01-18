@@ -3,19 +3,19 @@
 <table border="1">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
+      <th>Experiment</th>
       <th>Type</th>
+      <th>Weight</th>
     </tr>
   </thead>
 
   <tbody>
     <% @pages.each do |page| %>
       <tr>
-        <td><%= page.id %></td>
-        <td><%= page.name %></td>
+        <td><%= page.experiment.name %></td>
         <td><%= page.experiment_type %></td>
-        <td><%= link_to 'Show', shortcut_path( page.name ), :target => '_NEW' %></td>
+        <td><%= page.weight %></td>
+        <td><%= link_to 'Show', shortcut_path( page.experiment_id ), :target => '_NEW' %></td>
         <td><%= link_to 'Edit', edit_admin_page_path( page ) %></td>
         <td><%= link_to 'Destroy', admin_page_path( page ), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

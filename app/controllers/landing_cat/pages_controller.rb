@@ -10,8 +10,7 @@ module LandingCat
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_page
-      name = params[:name]
-      @page = name ? Page.find_by_name( name ) : Page.find( params[ :id ] )
+      @page = Page.find( params[ :id ] )
     end
 
     # Only allow a trusted parameter "white list" through.

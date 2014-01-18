@@ -17,11 +17,6 @@ describe LandingCat::PagesController do
       expect( assigns( :page ) ).to eq( page )
     end
 
-    it "accepts name as a lookup parameter" do
-      get :show, { :name => page.name }
-      expect( assigns( :page ) ).to eq( page )
-    end
-
   end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118082959) do
+ActiveRecord::Schema.define(version: 20140118121759) do
 
   create_table "landing_cat_campaigns", force: true do |t|
     t.string   "utmcsr"
@@ -37,17 +37,16 @@ ActiveRecord::Schema.define(version: 20140118082959) do
   add_index "landing_cat_leads", ["page_id"], name: "index_landing_cat_leads_on_page_id"
 
   create_table "landing_cat_pages", force: true do |t|
-    t.string "name",                       null: false
-    t.string "experiment_id",   limit: 64
-    t.string "experiment_key",  limit: 64
-    t.string "experiment_type", limit: 1
-    t.string "heading"
-    t.string "prompt"
-    t.string "call_to_action"
-    t.text   "body"
+    t.integer "experiment_id"
+    t.integer "weight"
+    t.string  "experiment_type", limit: 1
+    t.string  "heading"
+    t.string  "prompt"
+    t.string  "call_to_action"
+    t.text    "body"
   end
 
-  add_index "landing_cat_pages", ["name"], name: "index_landing_cat_pages_on_name", unique: true
+  add_index "landing_cat_pages", ["experiment_id", "experiment_type"], name: "index_landing_cat_pages_on_experiment_id_and_experiment_type", unique: true
 
   create_table "split_cat_experiments", force: true do |t|
     t.string   "name",        null: false

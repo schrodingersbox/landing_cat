@@ -66,6 +66,12 @@ NOTE: Page name is used in URL and user visible
 ## TODO
 
 * split-cat integration
+  * hypothesis creation / update
+  * add goal(s)
+  * tag users with token cookie
+  * select hypothesis and show page
+  * record goals
+  * manual testing
 
 * Mailer for new leads?
 

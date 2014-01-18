@@ -2,17 +2,18 @@ module LandingCat
   class Page < ActiveRecord::Base
     has_many :leads
 
-    validates_presence_of :name
-    validates_uniqueness_of :name
+    validates_uniqueness_of :experiment_type, :scopre => :experiment_id
 
-    before_save :underscore_name
+    belongs_to :experiment, :class_name => 'SplitCat::Experiment'
 
-    def underscore_name
-      self.name = self.name.underscore.gsub( /\s/, '_' )
-    end
+    after_save :update_hypothesis
 
-    def a?
-      return experiment_type == 'a'
+    def update_hypothesis
+      return unless experiment
+
+      hypothesis = experiment.hypotheses.where( :name => name ).first
+      hypothesis = experiment.hypotheses.create( :name => name ) unless hypothesis
+      hypothesis.update_attribute( :weight, weight )
     end
 
   end

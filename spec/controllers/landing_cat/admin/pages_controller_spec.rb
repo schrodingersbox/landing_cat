@@ -8,7 +8,7 @@ describe LandingCat::Admin::PagesController do
 
   let( :page ) { FactoryGirl.create( :page ) }
 
-  let( :valid_attributes ) { { 'name' => 'test' } }
+  let( :valid_attributes ) { { 'experiment_type' => 'c' } }
 
   before( :each ) do
     expect( page ).to be_present
