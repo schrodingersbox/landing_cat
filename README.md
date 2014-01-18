@@ -3,7 +3,7 @@
 This engine provides landing pages with several notable features:
   * Captures email addresses as leads
   * Captures ad campaign information
-  * Integrates Google Analytics content experiments
+  * Split test support
 
 It is currently incomplete.
 
@@ -12,6 +12,7 @@ It is currently incomplete.
 1. Add this to your `Gemfile` and `bundle install`
 
 		gem 'landing_cat', :git => 'https://github.com/schrodingersbox/landing_cat.git'
+        gem 'split_cat'
 
 2. Add this to your `config/routes.rb`
 
@@ -19,7 +20,8 @@ It is currently incomplete.
 
 3. Install and run migrations
 
-        rake meter_cat:install:migrations
+        rake landing_cat:install:migrations
+        rake split_cat:install:migrations
         rake db:migrate
 
 4. Add the following to your layout, just after the '<head>' tag
@@ -32,11 +34,19 @@ It is currently incomplete.
 
 ## How To
 
+### Secure the administrative interface
+
+Modify `config.application.rb` to inject your authorization filter into the controller:
+
+    config.after_initialize do
+      LandingCat::AdminController.instance_eval do
+        before_filter :require_login
+      end
+    end
+
 ### Create your first landing page
 
 NOTE: Page name is used in URL and user visible
-
-### Use Google Analytics content experiments
 
 ### Add more attributes to a landing page
 
@@ -55,7 +65,7 @@ NOTE: Page name is used in URL and user visible
 
 ## TODO
 
-* GA content experiment integration
+* split-cat integration
 
 * Mailer for new leads?
 

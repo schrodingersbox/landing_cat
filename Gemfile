@@ -18,4 +18,5 @@ group :development, :test do
   gem 'spec_cat', :tag => 'v0.1.0', :git => 'https://github.com/schrodingersbox/spec_cat.git'
   gem 'status_cat', :tag => 'v0.0.4', :git => 'https://github.com/schrodingersbox/status_cat.git'
   gem 'shoulda-matchers'
+  gem 'split_cat'
 end

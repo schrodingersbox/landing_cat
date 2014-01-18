@@ -10,6 +10,8 @@ LandingCat::Engine.routes.draw do
     resources :campaigns, :only => :index
     resources :leads, :only => [ :index, :show, :destroy ]
     resources :pages, :except => [ :show ]
+
+    mount SplitCat::Engine => '/split_cat'
   end
 
   get '/:name', :to => 'pages#show', :as => :shortcut

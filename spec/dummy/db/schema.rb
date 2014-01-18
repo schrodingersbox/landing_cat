@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118015913) do
+ActiveRecord::Schema.define(version: 20140118082959) do
 
   create_table "landing_cat_campaigns", force: true do |t|
     t.string   "utmcsr"
@@ -48,5 +48,60 @@ ActiveRecord::Schema.define(version: 20140118015913) do
   end
 
   add_index "landing_cat_pages", ["name"], name: "index_landing_cat_pages_on_name", unique: true
+
+  create_table "split_cat_experiments", force: true do |t|
+    t.string   "name",        null: false
+    t.string   "description"
+    t.integer  "winner_id"
+    t.datetime "created_at"
+  end
+
+  add_index "split_cat_experiments", ["name"], name: "index_split_cat_experiments_on_name", unique: true
+
+  create_table "split_cat_goal_subjects", force: true do |t|
+    t.integer  "goal_id"
+    t.integer  "subject_id"
+    t.integer  "experiment_id"
+    t.integer  "hypothesis_id"
+    t.datetime "created_at"
+  end
+
+  add_index "split_cat_goal_subjects", ["experiment_id"], name: "index_split_cat_goal_subjects_on_experiment_id"
+  add_index "split_cat_goal_subjects", ["goal_id", "subject_id"], name: "index_split_cat_gs_on_goal_id_and_subject_id", unique: true
+
+  create_table "split_cat_goals", force: true do |t|
+    t.integer  "experiment_id"
+    t.string   "name",          null: false
+    t.string   "description"
+    t.datetime "created_at"
+  end
+
+  add_index "split_cat_goals", ["experiment_id", "name"], name: "index_split_cat_goals_on_experiment_id_and_name", unique: true
+
+  create_table "split_cat_hypotheses", force: true do |t|
+    t.integer  "experiment_id"
+    t.string   "name",          null: false
+    t.string   "description"
+    t.integer  "weight"
+    t.datetime "created_at"
+  end
+
+  add_index "split_cat_hypotheses", ["experiment_id", "name"], name: "index_split_cat_hypotheses_on_experiment_id_and_name", unique: true
+
+  create_table "split_cat_hypothesis_subjects", force: true do |t|
+    t.integer  "hypothesis_id"
+    t.integer  "subject_id"
+    t.integer  "experiment_id"
+    t.datetime "created_at"
+  end
+
+  add_index "split_cat_hypothesis_subjects", ["experiment_id", "subject_id"], name: "index_split_cat_hs_on_experiment_id_and_subject_id", unique: true
+
+  create_table "split_cat_subjects", force: true do |t|
+    t.string   "token"
+    t.datetime "created_at"
+  end
+
+  add_index "split_cat_subjects", ["token"], name: "index_split_cat_subjects_on_token", unique: true
 
 end
