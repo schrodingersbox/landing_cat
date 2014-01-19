@@ -66,10 +66,10 @@ NOTE: Page name is used in URL and user visible
 ## TODO
 
 * split-cat integration
-  * select hypothesis and show page
-  * tag users with token cookie
   * record goals
   * manual testing
+
+* Add 404s to /landing_cat/experiments/show
 
 * Capture user agent for leads
 * Mailer for new leads?
