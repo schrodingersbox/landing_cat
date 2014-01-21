@@ -1,5 +1,8 @@
 module LandingCat
   class Page < ActiveRecord::Base
+
+    EXPERIMENT_GOAL = :clicked
+
     has_many :leads
 
     validates_presence_of :experiment_id, :experiment_type
@@ -9,15 +12,19 @@ module LandingCat
 
     after_save :update_experiment
 
+    def hypothesis
+      hypothesis = experiment.hypotheses.where( :name => experiment_type ).first
+      hypothesis = experiment.hypotheses.create( :name => experiment_type ) unless hypothesis
+      return hypothesis
+    end
+
     def update_experiment
       return unless experiment
 
-      hypothesis = experiment.hypotheses.where( :name => experiment_type ).first
-      hypothesis = experiment.hypotheses.create( :name => experiment_type ) unless hypothesis
       hypothesis.update_attribute( :weight, weight )
 
       if experiment.goals.empty?
-        experiment.goals.create( :name => :clicked )
+        experiment.goals.create( :name => EXPERIMENT_GOAL )
       end
     end
 

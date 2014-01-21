@@ -65,9 +65,6 @@ NOTE: Page name is used in URL and user visible
 
 ## TODO
 
-* split-cat integration
-  * record goals
-  * manual testing
 
 * Add 404s to /landing_cat/experiments/show
 
@@ -77,6 +74,8 @@ NOTE: Page name is used in URL and user visible
 * Rake task to externalize view files, like Devise
 
 * Add page param to identify template to use
+
+* Support more than 2 hypotheses - add a few more?  or text field entry?
 
 * Improve admin rendering
   * Add page and campaign to /admin/leads/show

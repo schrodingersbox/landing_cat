@@ -7,7 +7,7 @@ module LandingCat
     # GET /experiments/1
     def show
       @hypothesis = split_cat_hypothesis( @experiment.name, @split_cat_token )
-      @page = Page.where( :experiment_id => @experiment.id, :experiment_type => @hypothesis )
+      @page = Page.where( :experiment_id => @experiment.id, :experiment_type => @hypothesis ).first
       render 'landing_cat/pages/show'
     end
 

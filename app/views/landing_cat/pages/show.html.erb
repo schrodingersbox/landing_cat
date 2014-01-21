@@ -8,9 +8,11 @@
   <%= @page.prompt %>
 </p>
 <%= form_for( LandingCat::Lead.new ) do |f| %>
+    <%= hidden_field_tag :experiment, @page.experiment.name %>
     <%= f.text_field :email, :size => 32 %>
     <%= f.submit( @page.call_to_action ) %>
 <% end %>
+
 
 
 
