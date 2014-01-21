@@ -24,13 +24,9 @@ It is currently incomplete.
         rake split_cat:install:migrations
         rake db:migrate
 
-4. Add the following to your layout, just after the '<head>' tag
+4. Restart your Rails server
 
-    <%= yield( :head ) %>
-
-5. Restart your Rails server
-
-6.  Visit http://yourapp/landing_cat in a browser
+5.  Visit http://yourapp/landing_cat in a browser
 
 ## How To
 
@@ -65,17 +61,13 @@ NOTE: Page name is used in URL and user visible
 
 ## TODO
 
-
-* Add 404s to /landing_cat/experiments/show
-
-* Capture user agent for leads
-* Mailer for new leads?
-
-* Rake task to externalize view files, like Devise
-
-* Add page param to identify template to use
-
-* Support more than 2 hypotheses - add a few more?  or text field entry?
+* As needed
+    * Mailer for new leads
+    * Export leads in CSV
+    * Capture user agent for leads
+    * Rails generator to externalize view files, like Devise
+    * Add page attribute to identify template to use
+    * Support more than 2 hypotheses - add a few more?  or text field entry?
 
 * Improve admin rendering
   * Add page and campaign to /admin/leads/show
@@ -85,5 +77,3 @@ NOTE: Page name is used in URL and user visible
 * Add reasonable size limits to db string columns
 
 * Leads by channel report
-
-* Should GA integration move to split_cat, or it's own engine?
