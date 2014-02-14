@@ -5,6 +5,7 @@ module LandingCat
 
     # GET /pages/1
     def show
+      @lead = Lead.new( :page_id => @page.id )
     end
 
   private

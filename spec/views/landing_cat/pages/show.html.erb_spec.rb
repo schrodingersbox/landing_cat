@@ -8,6 +8,7 @@ describe 'landing_cat/pages/show' do
   before(:each) do
     stub_view_routes
     assign( :page, page )
+    assign( :lead, LandingCat::Lead.new )
   end
 
   it 'renders' do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118121759) do
+ActiveRecord::Schema.define(version: 20140214043059) do
 
   create_table "landing_cat_campaigns", force: true do |t|
     t.string   "utmcsr"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140118121759) do
     t.integer  "campaign_id"
     t.integer  "page_id"
     t.datetime "created_at"
+    t.string   "message"
   end
 
   add_index "landing_cat_leads", ["campaign_id"], name: "index_landing_cat_leads_on_campaign_id"

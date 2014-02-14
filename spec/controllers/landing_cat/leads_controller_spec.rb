@@ -7,20 +7,27 @@ describe LandingCat::LeadsController do
   routes { LandingCat::Engine.routes }
 
   let( :lead ) { FactoryGirl.create( :lead ) }
-  let( :experiment ) { FactoryGirl.build( :experiment ) }
+  let( :experiment ) { FactoryGirl.create( :experiment ) }
+  let( :page ) { FactoryGirl.create( :page, :experiment => experiment ) }
 
   let( :cookie ) { SpecCat.read( 'spec/fixtures/cookie.txt' ) }
   let( :cookies ) { { Campaign::UTMZ => cookie } }
 
-  let( :valid_attributes ) { { :email => 'foo@bar.com' } }
+  let( :valid_attributes ) { { :email => 'foo@bar.com', :message => 'This is only a test', :page_id => page.id } }
   let( :valid_params ) { { :lead => valid_attributes, :experiment => experiment.name } }
 
   describe 'POST create' do
 
     it 'creates a new Lead' do
+      Lead.delete_all
       expect {
         post :create, valid_params
       }.to change(Lead, :count).by(1)
+
+      test = Lead.first
+      expect( test.email ).to eql( valid_attributes[ :email ] )
+      expect( test.message ).to eql( valid_attributes[ :message ] )
+      expect( test.page_id ).to eql( valid_attributes[ :page_id ] )
     end
 
     it 'updates an existing Lead' do

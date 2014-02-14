@@ -61,6 +61,10 @@ NOTE: Page name is used in URL and user visible
 
 ## TODO
 
+* Configure layouts for admin and public controllers
+* Configure authorization for admin
+* Better admin navigation
+
 * As needed
     * Mailer for new leads
     * Export leads in CSV

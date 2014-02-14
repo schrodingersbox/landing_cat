@@ -15,7 +15,7 @@ module LandingCat
   private
 
     def lead_params
-      params[ :lead ].permit( :email )
+      params[ :lead ].permit( Lead.new.attributes.keys )
     end
 
   end
