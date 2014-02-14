@@ -11,6 +11,7 @@ describe LandingCat::AdminController do
     it 'gets' do
       get :index, :use_route => :landing_cat
       expect( response ).to be_success
+      expect( response ).to render_template( LandingCat.config.layout_admin )
     end
 
   end

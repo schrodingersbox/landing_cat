@@ -40,6 +40,15 @@ Modify `config.application.rb` to inject your authorization filter into the cont
       end
     end
 
+### Apply custom layouts
+
+Create or add to `config/initializers/landing_cat.rb`
+
+    LandingCat.configure do |config|
+      config.layout_admin = 'admin'
+      config.layout_public = 'application'
+    end
+
 ### Create your first landing page
 
 NOTE: Page name is used in URL and user visible
@@ -61,7 +70,6 @@ NOTE: Page name is used in URL and user visible
 
 ## TODO
 
-* Configure layouts for admin and public controllers
 * Configure authorization for admin
 * Better admin navigation
 

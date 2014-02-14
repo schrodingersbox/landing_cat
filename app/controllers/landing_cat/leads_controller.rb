@@ -1,5 +1,5 @@
 module LandingCat
-  class LeadsController < ApplicationController
+  class LeadsController < PublicController
 
     before_filter :set_split_cat_cookie, :only => :create
 

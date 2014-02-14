@@ -18,11 +18,6 @@ describe LandingCat::PagesController do
       expect( assigns( :page ) ).to eq( page )
     end
 
-    it 'assigns a new lead' do
-      get :show, { :id => page.to_param }
-      expect( assigns( :lead ) ).to be_new_record
-    end
-
   end
 
 end

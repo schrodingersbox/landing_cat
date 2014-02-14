@@ -1,5 +1,5 @@
 module LandingCat
-  class ExperimentsController < ApplicationController
+  class ExperimentsController < PublicController
 
     before_action :set_experiment, :only => :show
     before_filter :set_split_cat_cookie, :only => :show

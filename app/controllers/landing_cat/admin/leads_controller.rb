@@ -1,6 +1,7 @@
 module LandingCat
   module Admin
-    class LeadsController < ApplicationController
+    class LeadsController < LandingCat::AdminController
+
       before_action :set_lead, only: [:show, :destroy]
 
       # GET /leads

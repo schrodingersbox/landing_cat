@@ -1,6 +1,6 @@
 module LandingCat
   module Admin
-    class CampaignsController < ApplicationController
+    class CampaignsController < LandingCat::AdminController
 
       # GET /campaigns
       def index

@@ -1,6 +1,7 @@
 module LandingCat
   module Admin
-    class PagesController < ApplicationController
+    class PagesController < LandingCat::AdminController
+
       before_action :set_page, only: [:edit, :update, :destroy]
 
       # GET /pages
