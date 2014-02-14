@@ -54,11 +54,6 @@ describe LandingCat::LeadsController do
       expect( assigns(:lead) ).to be_persisted
     end
 
-    it 'renders the create page' do
-      post :create, valid_params
-      expect( response ).to render_template( 'create' )
-    end
-
     it 'reads the split cat token' do
       token = 'foobar'
       request.cookies[ :split_cat_token ] = token
@@ -71,6 +66,16 @@ describe LandingCat::LeadsController do
       request.cookies[ :split_cat_token ] = token
       controller.should_receive( :split_cat_goal ).with( experiment.name,  Page::EXPERIMENT_GOAL, token )
       post :create, valid_params
+    end
+
+    it 'renders the create page' do
+      post :create, valid_params
+      expect( response ).to render_template( 'create' )
+    end
+
+    it 'renders with the configured layout' do
+      post :create, valid_params
+      expect( response ).to render_template( LandingCat.config.public_layout )
     end
 
   end

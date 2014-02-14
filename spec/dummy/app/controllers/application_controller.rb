@@ -2,4 +2,9 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
+  def authenticate!
+    render :text => 'forbidden' unless ( cookies[ :login ] || Rails.env.test? )
+  end
+
 end

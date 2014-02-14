@@ -10,16 +10,22 @@ describe LandingCat::Config do
 
   describe 'attributes' do
 
-    it 'has an #layout_admin accessor' do
-      expect( config.layout_admin ).to_not be_nil
-      config.layout_admin = config.layout_admin
-      expect( config.layout_admin ).to eql( config.layout_admin )
+    it 'has an #admin_before_filter accessor' do
+      expect( config.admin_before_filter ).to_not be_nil
+      config.admin_before_filter = config.admin_before_filter
+      expect( config.admin_before_filter ).to eql( config.admin_before_filter )
     end
 
-    it 'has a #layout_public accessor' do
-      expect( config.layout_public ).to_not be_nil
-      config.layout_public = config.layout_public
-      expect( config.layout_public ).to eql( config.layout_public )
+    it 'has an #admin_layout accessor' do
+      expect( config.admin_layout ).to_not be_nil
+      config.admin_layout = config.admin_layout
+      expect( config.admin_layout ).to eql( config.admin_layout )
+    end
+
+    it 'has a #public_layout accessor' do
+      expect( config.public_layout ).to_not be_nil
+      config.public_layout = config.public_layout
+      expect( config.public_layout ).to eql( config.public_layout )
     end
 
   end

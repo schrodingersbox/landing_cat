@@ -22,6 +22,11 @@ describe LandingCat::PagesController do
       expect( assigns( :page ) ).to eq( page )
     end
 
+    it 'renders with the configured layout' do
+      get :show, { :id => page.to_param }
+      expect( response ).to render_template( LandingCat.config.public_layout )
+    end
+
   end
 
 end

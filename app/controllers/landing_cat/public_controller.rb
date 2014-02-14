@@ -4,7 +4,7 @@ module LandingCat
     layout :set_layout
 
     def set_layout
-      return LandingCat.config.layout_public
+      return LandingCat.config.public_layout
     end
 
   end

@@ -22,13 +22,18 @@ describe LandingCat::Admin::PagesController do
   describe 'GET index' do
 
     it 'assigns all pages as @pages' do
-      get :index, {}
+      get :index
       expect( assigns( :pages ) ).to eq( [ page ] )
     end
 
     it 'renders with the configured layout' do
-      get :index, {}
-      expect( response ).to render_template( LandingCat.config.layout_admin )
+      get :index
+      expect( response ).to render_template( LandingCat.config.admin_layout )
+    end
+
+    it 'uses the configured before filter' do
+      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+      get :index
     end
 
   end
@@ -42,7 +47,12 @@ describe LandingCat::Admin::PagesController do
 
     it 'renders with the configured layout' do
       get :new
-      expect( response ).to render_template( LandingCat.config.layout_admin )
+      expect( response ).to render_template( LandingCat.config.admin_layout )
+    end
+
+    it 'uses the configured before filter' do
+      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+      get :new
     end
 
   end
@@ -56,12 +66,22 @@ describe LandingCat::Admin::PagesController do
 
     it 'renders with the configured layout' do
       get :edit, { :id => page.to_param }
-      expect( response ).to render_template( LandingCat.config.layout_admin )
+      expect( response ).to render_template( LandingCat.config.admin_layout )
+    end
+
+    it 'uses the configured before filter' do
+      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+      get :edit, { :id => page.to_param }
     end
 
   end
 
   describe 'POST create' do
+
+    it 'uses the configured before filter' do
+      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+      post :create, { :page => valid_attributes }
+    end
 
     describe 'with valid params' do
 
@@ -102,7 +122,7 @@ describe LandingCat::Admin::PagesController do
 
       it 'renders with the configured layout' do
         post :create, { :page => {} }
-        expect( response ).to render_template( LandingCat.config.layout_admin )
+        expect( response ).to render_template( LandingCat.config.admin_layout )
       end
 
     end
@@ -110,6 +130,11 @@ describe LandingCat::Admin::PagesController do
   end
 
   describe 'PUT update' do
+
+    it 'uses the configured before filter' do
+      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+      put :update, {:id => page.to_param, :page => valid_attributes }
+    end
 
     describe 'with valid params' do
 
@@ -148,7 +173,7 @@ describe LandingCat::Admin::PagesController do
 
       it 'renders with the configured layout' do
         put :update, { :id => page.to_param, :page => {} }
-        expect( response ).to render_template( LandingCat.config.layout_admin )
+        expect( response ).to render_template( LandingCat.config.admin_layout )
       end
 
     end
@@ -166,6 +191,11 @@ describe LandingCat::Admin::PagesController do
     it 'redirects to the pages list' do
       delete :destroy, { :id => page.to_param }
       expect( response ).to redirect_to( admin_pages_url )
+    end
+
+    it 'uses the configured before filter' do
+      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+      delete :destroy, { :id => page.to_param }
     end
 
   end

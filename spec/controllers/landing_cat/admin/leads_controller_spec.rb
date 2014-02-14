@@ -25,7 +25,12 @@ describe LandingCat::Admin::LeadsController do
 
     it 'renders with the configured layout' do
       get :index
-      expect( response ).to render_template( LandingCat.config.layout_admin )
+      expect( response ).to render_template( LandingCat.config.admin_layout )
+    end
+
+    it 'uses the configured before filter' do
+      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+      get :index
     end
 
   end
@@ -39,11 +44,18 @@ describe LandingCat::Admin::LeadsController do
 
     it 'renders with the configured layout' do
       get :show, { :id => lead.to_param }
-      expect( response ).to render_template( LandingCat.config.layout_admin )
+      expect( response ).to render_template( LandingCat.config.admin_layout )
     end
+
+    it 'uses the configured before filter' do
+      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+      get :show, { :id => lead.to_param }
+    end
+
   end
 
   describe 'DELETE destroy' do
+
     it 'destroys the requested lead' do
       expect {
         delete :destroy, { :id => lead.to_param }
@@ -54,6 +66,12 @@ describe LandingCat::Admin::LeadsController do
       delete :destroy, { :id => lead.to_param }
       expect( response ).to redirect_to( admin_leads_url )
     end
+
+    it 'uses the configured before filter' do
+      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+      delete :destroy, { :id => lead.to_param }
+    end
+
   end
 
 end

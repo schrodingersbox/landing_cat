@@ -19,14 +19,19 @@ describe LandingCat::Admin::CampaignsController do
   describe 'GET index' do
 
     it 'assigns all campaigns as @campaigns' do
-      get :index, {}
+      get :index
       expect( assigns(:campaign) ).to be_a_new( Campaign )
       expect( assigns(:campaigns) ).to eq([campaign])
     end
 
     it 'renders with the configured layout' do
-      get :index, {}
-      expect( response ).to render_template( LandingCat.config.layout_admin )
+      get :index
+      expect( response ).to render_template( LandingCat.config.admin_layout )
+    end
+
+    it 'uses the configured before filter' do
+      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+      get :index
     end
 
   end

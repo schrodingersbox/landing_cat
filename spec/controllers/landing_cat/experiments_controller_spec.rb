@@ -57,6 +57,11 @@ describe LandingCat::ExperimentsController do
       expect( response ).to render_template( 'landing_cat/pages/show' )
     end
 
+    it 'renders with the configured layout' do
+      get :show, { :id => experiment.to_param }
+      expect( response ).to render_template( LandingCat.config.public_layout )
+    end
+
   end
 
 end

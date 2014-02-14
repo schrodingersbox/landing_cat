@@ -32,12 +32,18 @@ It is currently incomplete.
 
 ### Secure the administrative interface
 
-Modify `config.application.rb` to inject your authorization filter into the controller:
+Define your authentication method on ApplicationController:
 
-    config.after_initialize do
-      LandingCat::AdminController.instance_eval do
-        before_filter :require_login
+    class ApplicationController < ActionController::Base
+      def authenticate!
+        render :text => 'forbidden' unless cookies[ :login ]
       end
+    end
+
+Create or add to `config/initializers/landing_cat.rb`
+
+    LandingCat.configure do |config|
+      config.admin_before_filter = :authenticate!
     end
 
 ### Apply custom layouts
@@ -45,8 +51,8 @@ Modify `config.application.rb` to inject your authorization filter into the cont
 Create or add to `config/initializers/landing_cat.rb`
 
     LandingCat.configure do |config|
-      config.layout_admin = 'admin'
-      config.layout_public = 'application'
+      config.admin_layout = 'admin'
+      config.public_layout = 'application'
     end
 
 ### Create your first landing page
