@@ -4,16 +4,13 @@ module LandingCat
 
       before_action :set_lead, only: [:show, :destroy]
 
-      # GET /leads
       def index
         @leads = Lead.all
       end
 
-      # GET /leads/1
       def show
       end
 
-      # DELETE /leads/1
       def destroy
         @lead.destroy
         redirect_to admin_leads_path, notice: 'Lead was successfully destroyed.'

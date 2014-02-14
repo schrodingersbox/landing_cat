@@ -11,6 +11,10 @@ describe LandingCat::PagesController do
     expect( page ).to be_present
   end
 
+  it 'is a subclass of LandingCat::AdminController' do
+    expect( @controller ).to be_a_kind_of( LandingCat::PublicController )
+  end
+
   describe 'GET show' do
 
     it 'assigns the requested page as @page' do

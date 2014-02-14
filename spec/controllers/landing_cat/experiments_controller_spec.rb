@@ -12,6 +12,10 @@ describe LandingCat::ExperimentsController do
     expect( page ).to be_present
   end
 
+  it 'is a subclass of LandingCat::AdminController' do
+    expect( @controller ).to be_a_kind_of( LandingCat::PublicController )
+  end
+
   describe "GET show" do
 
     it 'looks up the experiment by id' do

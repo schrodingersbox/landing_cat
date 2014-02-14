@@ -3,7 +3,6 @@ module LandingCat
 
     before_action :set_page, only: [ :show ]
 
-    # GET /pages/1
     def show
     end
 

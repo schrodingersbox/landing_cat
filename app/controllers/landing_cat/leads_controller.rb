@@ -3,7 +3,6 @@ module LandingCat
 
     before_filter :set_split_cat_cookie, :only => :create
 
-    # POST /leads
     def create
       @lead = Lead.find_or_create_by( lead_params )
       @lead.campaign = Campaign.find_or_create_by_cookies( cookies )

@@ -2,7 +2,6 @@ module LandingCat
   module Admin
     class CampaignsController < LandingCat::AdminController
 
-      # GET /campaigns
       def index
         @campaign = Campaign.new( campaign_params )
         @campaigns = Campaign.all

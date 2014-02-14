@@ -16,6 +16,10 @@ describe LandingCat::LeadsController do
   let( :valid_attributes ) { { :email => 'foo@bar.com', :message => 'This is only a test', :page_id => page.id } }
   let( :valid_params ) { { :lead => valid_attributes, :experiment => experiment.name } }
 
+  it 'is a subclass of LandingCat::AdminController' do
+    expect( @controller ).to be_a_kind_of( LandingCat::PublicController )
+  end
+
   describe 'POST create' do
 
     it 'creates a new Lead' do

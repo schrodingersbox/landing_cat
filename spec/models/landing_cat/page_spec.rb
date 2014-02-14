@@ -29,8 +29,16 @@ describe LandingCat::Page do
 
   end
 
-  it 'defines a constant for the split test goal' do
-    expect( Page::EXPERIMENT_GOAL ).to be( :clicked )
+  describe 'constants' do
+
+    it 'defines the split test goal' do
+      expect( Page::EXPERIMENT_GOAL ).to be( :clicked )
+    end
+
+    it 'defines the base attributes' do
+      expect( Page::BASE_ATTRIBUTES ).to eql( [ :id, :experiment_id, :weight, :experiment_type ] )
+    end
+
   end
 
   it 'validates the presence of experiment id' do
@@ -62,6 +70,15 @@ describe LandingCat::Page do
     Page.delete_all
     expect( test ).to receive( :update_experiment )
     test.save
+  end
+
+  describe '#editable_attributes' do
+
+    it 'returns an array of non-base attribute names' do
+      expected = [:body, :call_to_action, :heading, :prompt]
+      expect( page.editable_attributes ).to eql( expected )
+    end
+
   end
 
   describe '#hypothesis' do

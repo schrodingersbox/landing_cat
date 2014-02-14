@@ -4,7 +4,6 @@ module LandingCat
     before_action :set_experiment, :only => :show
     before_filter :set_split_cat_cookie, :only => :show
 
-    # GET /experiments/1
     def show
       @hypothesis = split_cat_hypothesis( @experiment.name, @split_cat_token )
       @page = Page.where( :experiment_id => @experiment.id, :experiment_type => @hypothesis ).first

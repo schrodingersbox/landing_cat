@@ -30,25 +30,12 @@
       <%= f.text_field( :weight, :size => 4 ) %>
     </div>
 
-    <div class="form-group">
-      <%= f.label( :heading ) %>
-      <%= f.text_field( :heading, :size => 64 ) %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label( :body ) %>
-      <%= f.text_area( :body, :size => '60x10' ) %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label( :prompt ) %>
-      <%= f.text_field( :prompt, :size => 64) %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label( :call_to_action ) %>
-      <%= f.text_field( :call_to_action, :size => 32 ) %>
-    </div>
+    <% ( @page.editable_attributes ).each do |attribute| %>
+        <div class="form-group">
+          <%= f.label( attribute ) %>
+          <%= f.text_area( attribute, :size => '60x2' ) %>
+        </div>
+    <% end %>
 
   <div class="actions">
     <%= f.submit %>

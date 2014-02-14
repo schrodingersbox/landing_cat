@@ -4,21 +4,17 @@ module LandingCat
 
       before_action :set_page, only: [:edit, :update, :destroy]
 
-      # GET /pages
       def index
         @pages = Page.all.order( 'experiment_id desc, experiment_type asc' ).includes( :experiment  )
       end
 
-      # GET /pages/new
       def new
         @page = Page.new
       end
 
-      # GET /pages/1/edit
       def edit
       end
 
-      # POST /pages
       def create
         @page = Page.new(page_params)
 
@@ -29,7 +25,6 @@ module LandingCat
         end
       end
 
-      # PATCH/PUT /pages/1
       def update
         if @page.update(page_params)
           redirect_to admin_pages_path, notice: 'Page was successfully updated.'
@@ -38,7 +33,6 @@ module LandingCat
         end
       end
 
-      # DELETE /pages/1
       def destroy
         @page.destroy
         redirect_to admin_pages_path, notice: 'Page was successfully destroyed.'
@@ -54,6 +48,7 @@ module LandingCat
         def page_params
           params[ :page ].permit( Page.new.attributes.keys )
         end
+
     end
   end
 end

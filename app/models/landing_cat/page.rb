@@ -3,6 +3,8 @@ module LandingCat
 
     EXPERIMENT_GOAL = :clicked
 
+    BASE_ATTRIBUTES = [ :id, :experiment_id, :weight, :experiment_type ]
+
     has_many :leads
 
     validates_presence_of :experiment_id, :experiment_type
@@ -11,6 +13,11 @@ module LandingCat
     belongs_to :experiment, :class_name => 'SplitCat::Experiment'
 
     after_save :update_experiment
+
+    def editable_attributes
+      base_attributes = BASE_ATTRIBUTES.map { |a| a.to_s }
+      return ( attributes.keys - base_attributes ).sort.map { |a| a.to_sym }
+    end
 
     def hypothesis
       hypothesis = experiment.hypotheses.where( :name => experiment_type ).first
