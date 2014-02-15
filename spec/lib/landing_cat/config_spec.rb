@@ -28,6 +28,12 @@ describe LandingCat::Config do
       expect( config.public_layout ).to eql( config.public_layout )
     end
 
+    it 'has a #lead_after_create accessor' do
+      expect( config.lead_after_create ).to_not be_nil
+      config.lead_after_create = config.lead_after_create
+      expect( config.lead_after_create ).to eql( config.lead_after_create )
+    end
+
   end
 
 end

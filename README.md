@@ -5,7 +5,7 @@ This engine provides landing pages with several notable features:
   * Captures ad campaign information
   * Split test support
 
-It is currently incomplete.
+It is currently _very_ incomplete.
 
 ## Getting Started
 
@@ -29,6 +29,13 @@ It is currently incomplete.
 5.  Visit http://yourapp/landing_cat in a browser
 
 ## How To
+
+### Create your first landing page
+
+1.  Create an experiment
+2.  Create a page
+
+NOTE: Experiment name is used in URL and user visible
 
 ### Secure the administrative interface
 
@@ -55,13 +62,17 @@ Create or add to `config/initializers/landing_cat.rb`
       config.public_layout = 'application'
     end
 
-### Create your first landing page
-
-NOTE: Page name is used in URL and user visible
-
 ### Add more attributes to a landing page
 
-### Tag users with the ad campaign they came through
+Just add columns to the landing_cat_pages table and access them off @page in the view file.
+
+### Receive a callback when a new lead is created
+
+Create or add to `config/initializers/landing_cat.rb`
+
+    LandingCat.configure do |config|
+      config.lead_after_create = ->(lead) { Rails.logger.info "LEAD CREATED: #{lead.email}" }
+    end
 
 ## Reference
 
@@ -76,11 +87,9 @@ NOTE: Page name is used in URL and user visible
 
 ## TODO
 
-* Configure authorization for admin
 * Better admin navigation
 
 * As needed
-    * Mailer for new leads
     * Export leads in CSV
     * Capture user agent for leads
     * Rails generator to externalize view files, like Devise

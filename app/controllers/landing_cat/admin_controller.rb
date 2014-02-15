@@ -12,7 +12,8 @@ module LandingCat
     end
 
     def use_before_filter
-      send( LandingCat.config.admin_before_filter ) if LandingCat.config.admin_before_filter
+      filter = LandingCat.config.admin_before_filter
+      send( filter ) if filter
     end
 
   end
