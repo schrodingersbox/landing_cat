@@ -55,10 +55,11 @@ describe LandingCat::Campaign do
     end
 
     it 'returns an existing record, if found' do
-      expect( Campaign.count ).to eql( 0 )
+      Campaign.create!
+      expect( Campaign.count ).to eql( 1 )
       campaign1 = Campaign.find_or_create_by_cookies( cookies )
       campaign2 = Campaign.find_or_create_by_cookies( cookies )
-      expect( Campaign.count ).to eql( 1 )
+      expect( Campaign.count ).to eql( 2 )
 
       expect( campaign1.id ).to eql( campaign2.id )
       expect_campaign_to_match_cookie( campaign2 )
