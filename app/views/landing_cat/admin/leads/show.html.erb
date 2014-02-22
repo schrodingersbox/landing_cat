@@ -16,13 +16,38 @@
 </div>
 
 <div class="form-group">
-    <label><%= t :campaign  %>:</label>
-    <%= @lead.campaign_id %>
+    <label><%= t :page  %>:</label>
+    <%= @lead.page_id %>
 </div>
 
 <div class="form-group">
-    <label><%= t :page  %>:</label>
-    <%= @lead.page_id %>
+    <label><%= t :utmcsr  %>:</label>
+    <%= @lead.campaign.utmcsr if @lead.campaign %>
+</div>
+
+<div class="form-group">
+    <label><%= t :utmcmd  %>:</label>
+    <%= @lead.campaign.utmcmd if @lead.campaign %>
+</div>
+
+<div class="form-group">
+    <label><%= t :utmctr  %>:</label>
+    <%= @lead.campaign.utmctr if @lead.campaign %>
+</div>
+
+<div class="form-group">
+    <label><%= t :utmcct  %>:</label>
+    <%= @lead.campaign.utmcct if @lead.campaign %>
+</div>
+
+<div class="form-group">
+    <label><%= t :utmccn  %>:</label>
+    <%= @lead.campaign.utmccn if @lead.campaign %>
+</div>
+
+<div class="form-group">
+    <label><%= t :utmgclid  %>:</label>
+    <%= @lead.campaign.utmgclid if @lead.campaign %>
 </div>
 
 <%= link_to 'Destroy', landing_cat.admin_lead_path( @lead ), method: :delete, data: { confirm: 'Are you sure?' } %>
