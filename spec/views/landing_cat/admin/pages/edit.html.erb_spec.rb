@@ -2,14 +2,30 @@ require 'spec_helper'
 
 describe 'landing_cat/admin/pages/edit' do
 
-  let( :page ) { FactoryGirl.build( :page ) }
+  let( :experiment ) { FactoryGirl.create( :experiment ) }
 
-  before( :each ) do
-    stub_view_routes
-    assign( :page, page )
+  context 'with a new record' do
+
+    before( :each ) do
+      assign( :page, FactoryGirl.build( :page ) )
+    end
+
+    it 'renders the edit page form' do
+      render
+    end
+
   end
 
-  it 'renders the edit page form' do
-    render
+  context 'with an existing record' do
+
+    before( :each ) do
+      assign( :page, FactoryGirl.create( :page, :experiment => experiment ) )
+    end
+
+    it 'renders the edit page form' do
+      render
+    end
+
   end
+
 end

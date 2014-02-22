@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', page_path( @page ) %> |
-<%= link_to 'Back', admin_pages_path %>
+<%= link_to 'Show', landing_cat.page_path( @page ) unless @page.new_record? %> |
+<%= link_to 'Back', landing_cat.admin_pages_path %>
