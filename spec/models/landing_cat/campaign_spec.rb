@@ -19,12 +19,11 @@ describe LandingCat::Campaign do
       should have_db_column( :utmctr ).of_type( :string )
       should have_db_column( :utmcct ).of_type( :string )
       should have_db_column( :utmccn ).of_type( :string )
-      should have_db_column( :utmgclid ).of_type( :string )
       should have_db_column( :created_at ).of_type( :datetime )
     end
 
     it 'has indexes' do
-      should have_db_index( [ :utmcsr, :utmcmd, :utmctr, :utmcct, :utmccn, :utmgclid ] ).unique( true )
+      should have_db_index( [ :utmcsr, :utmcmd, :utmctr, :utmcct, :utmccn ] ).unique( true )
     end
 
   end

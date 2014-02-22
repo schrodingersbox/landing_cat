@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140214043059) do
+ActiveRecord::Schema.define(version: 20140222183807) do
 
   create_table "landing_cat_campaigns", force: true do |t|
     t.string   "utmcsr"
@@ -19,11 +19,10 @@ ActiveRecord::Schema.define(version: 20140214043059) do
     t.string   "utmctr"
     t.string   "utmcct"
     t.string   "utmccn"
-    t.string   "utmgclid"
     t.datetime "created_at"
   end
 
-  add_index "landing_cat_campaigns", ["utmcsr", "utmcmd", "utmctr", "utmcct", "utmccn", "utmgclid"], name: "index_landing_cat_campaigns_on_everything", unique: true
+  add_index "landing_cat_campaigns", ["utmcsr", "utmcmd", "utmctr", "utmcct", "utmccn"], name: "index_landing_cat_campaigns_on_everything", unique: true
 
   create_table "landing_cat_leads", force: true do |t|
     t.string   "email",       null: false

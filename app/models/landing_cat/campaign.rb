@@ -25,7 +25,7 @@ module LandingCat
 
     def self.find_or_create_by_cookies( cookies )
       campaign = Campaign.new.parse_cookies( cookies )
-      match = campaign.attributes.select { |key, value| [ :utmcsr, :utmcmd, :utmctr, :utmcct, :utmccn, :utmgclid ].include?( key.to_sym ) }
+      match = campaign.attributes.select { |key, value| [ :utmcsr, :utmcmd, :utmctr, :utmcct, :utmccn ].include?( key.to_sym ) }
 
       unless found = Campaign.where( match ).first
         campaign.save
