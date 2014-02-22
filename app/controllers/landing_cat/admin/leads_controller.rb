@@ -5,7 +5,7 @@ module LandingCat
       before_action :set_lead, only: [:show, :destroy]
 
       def index
-        @leads = Lead.all
+        @leads = Lead.all.order( 'created_at desc' ).page( params[ :page ] )
       end
 
       def show

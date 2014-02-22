@@ -25,4 +25,6 @@
     <%= @lead.page_id %>
 </div>
 
-<%= link_to 'Back', admin_leads_path %>
+<%= link_to 'Destroy', landing_cat.admin_lead_path( @lead ), method: :delete, data: { confirm: 'Are you sure?' } %>
+|
+<%= link_to 'Back', landing_cat.admin_leads_path %>

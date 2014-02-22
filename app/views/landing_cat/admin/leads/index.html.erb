@@ -16,8 +16,9 @@
         <th><%= lead.email %></th>
         <th><%= lead.created_at %></th>
         <td><%= link_to 'Show', admin_lead_path( lead ) %></td>
-        <td><%= link_to 'Destroy', admin_lead_path( lead ), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @leads %>
