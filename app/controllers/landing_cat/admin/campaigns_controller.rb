@@ -4,7 +4,7 @@ module LandingCat
 
       def index
         @campaign = Campaign.new( campaign_params )
-        @campaigns = Campaign.all
+        @campaigns = Campaign.all.order( 'created_at desc' ).page( params[ :page ] )
       end
 
     private
