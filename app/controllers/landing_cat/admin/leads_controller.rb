@@ -5,7 +5,12 @@ module LandingCat
       before_action :set_lead, only: [:show, :destroy]
 
       def index
-        @leads = Lead.all.order( 'created_at desc' ).page( params[ :page ] )
+        @leads = Lead.all.order( 'created_at desc' )
+
+        respond_to do |format|
+          format.html { @leads = @leads.page( params[ :page ] ) }
+          format.csv { render :text => Lead.to_csv( @leads ), :content_type => 'text/csv' }
+        end
       end
 
       def show

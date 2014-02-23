@@ -8,6 +8,8 @@ describe LandingCat::Campaign do
   let( :cookie ) { SpecCat.read( 'spec/fixtures/cookie.txt' ) }
   let( :cookies ) { { Campaign::UTMZ => cookie } }
 
+  it( 'is csvable' ) { should include_module( LandingCat::Csvable ) }
+
   it ( 'has many leads' ) { should have_many( :leads ) }
 
   describe 'schema' do

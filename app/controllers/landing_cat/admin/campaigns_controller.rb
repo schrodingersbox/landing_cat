@@ -4,7 +4,12 @@ module LandingCat
 
       def index
         @campaign = Campaign.new( campaign_params )
-        @campaigns = Campaign.all.order( 'created_at desc' ).page( params[ :page ] )
+        @campaigns = Campaign.all.order( 'created_at desc' )
+
+        respond_to do |format|
+          format.html { @campaigns = @campaigns.page( params[ :page ] ) }
+          format.csv { render :text => Campaign.to_csv( @campaigns ), :content_type => 'text/csv' }
+        end
       end
 
     private

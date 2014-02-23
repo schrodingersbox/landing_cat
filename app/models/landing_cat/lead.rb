@@ -1,6 +1,8 @@
 module LandingCat
   class Lead < ActiveRecord::Base
 
+    include Csvable
+
     belongs_to :page
     belongs_to :campaign
 

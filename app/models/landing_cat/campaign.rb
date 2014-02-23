@@ -1,6 +1,8 @@
 module LandingCat
   class Campaign < ActiveRecord::Base
 
+    include LandingCat::Csvable
+
     has_many :leads
 
     UTMZ = '__utmz'.freeze

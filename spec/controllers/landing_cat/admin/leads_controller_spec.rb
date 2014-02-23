@@ -33,6 +33,12 @@ describe LandingCat::Admin::LeadsController do
       get :index
     end
 
+    it 'responds to CSV' do
+      get :index, { :format => :csv }
+      expect( response ).to be_success
+      expect( response.content_type ).to eql( 'text/csv' )
+    end
+
   end
 
   describe 'GET show' do
