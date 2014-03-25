@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222183807) do
+ActiveRecord::Schema.define(version: 20140325021534) do
 
   create_table "landing_cat_campaigns", force: true do |t|
     t.string   "utmcsr"
