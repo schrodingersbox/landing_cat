@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/schrodingersbox/landing_cat.svg?branch=master)](https://travis-ci.org/schrodingersbox/landing_cat)
+[![Coverage Status](https://coveralls.io/repos/schrodingersbox/landing_cat/badge.png?branch=master)](https://coveralls.io/r/schrodingersbox/landing_cat?branch=master)
+[![Code Climate](https://codeclimate.com/github/schrodingersbox/landing_cat.png)](https://codeclimate.com/github/schrodingersbox/landing_cat)
+
 # schrodingersbox/landing_cat README
 
 This engine provides landing pages with several notable features:
