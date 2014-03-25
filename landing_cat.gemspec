@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '~> 4.0', '>= 4.0.0'
   s.add_dependency 'kaminari', '~> 0.15'
+  s.add_dependency 'split_cat', '~> 0.0.9'
 
   s.add_development_dependency 'sqlite3', '~> 1.3', '>= 1.3.8'
   s.add_development_dependency 'rspec', '~> 2.14', '>= 2.14.0'
