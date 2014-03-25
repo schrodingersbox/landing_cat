@@ -21,8 +21,8 @@ describe LandingCat::AdminController do
       expect( response ).to render_template( LandingCat.config.admin_layout )
     end
 
-    it 'uses the configured before filter' do
-      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+    it 'uses the configured authorization' do
+      expect( @controller ).to receive( :instance_eval ).with( &LandingCat.config.authorize_with )
       get :index
     end
 

@@ -2,7 +2,7 @@ module LandingCat
   class AdminController < ApplicationController
 
     layout :set_layout
-    before_filter :use_before_filter
+    before_filter :_authorize!
 
     def index
     end
@@ -11,9 +11,8 @@ module LandingCat
       return LandingCat.config.admin_layout
     end
 
-    def use_before_filter
-      filter = LandingCat.config.admin_before_filter
-      send( filter ) if filter
+    def _authorize!
+      instance_eval(&LandingCat.config.authorize_with)
     end
 
   end

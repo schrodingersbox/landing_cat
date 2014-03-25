@@ -39,18 +39,12 @@ NOTE: Experiment name is used in URL and user visible
 
 ### Secure the administrative interface
 
-Define your authentication method on ApplicationController:
-
-    class ApplicationController < ActionController::Base
-      def authenticate!
-        render :text => 'forbidden' unless cookies[ :login ]
-      end
-    end
-
 Create or add to `config/initializers/landing_cat.rb`
 
     LandingCat.configure do |config|
-      config.admin_before_filter = :authenticate!
+      config.authorize_with do
+        redirect_to main_app.root_path unless current_user.try(:admin?)
+      end
     end
 
 ### Apply custom layouts
@@ -84,6 +78,7 @@ Create or add to `config/initializers/landing_cat.rb`
  * [The Semi-Isolated Rails Engine](http://bibwild.wordpress.com/2012/05/10/the-semi-isolated-rails-engine/)
  * [FactoryGirl](https://github.com/thoughtbot/factory_girl)
  * [Better Specs](http://betterspecs.org)
+ * [Add Achievement Badges to Your Gem README](http://elgalu.github.io/2013/add-achievement-badges-to-your-gem-readme/)
 
 ## TODO
 

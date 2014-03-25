@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def authenticate!
-    render :text => 'forbidden' unless ( cookies[ :login ] || Rails.env.test? )
+    render :text => 'forbidden' unless cookies[ :login ]
   end
 
 end

@@ -31,8 +31,8 @@ describe LandingCat::Admin::PagesController do
       expect( response ).to render_template( LandingCat.config.admin_layout )
     end
 
-    it 'uses the configured before filter' do
-      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+    it 'uses the configured authorization' do
+      expect( @controller ).to receive( :instance_eval ).with( &LandingCat.config.authorize_with )
       get :index
     end
 
@@ -50,8 +50,8 @@ describe LandingCat::Admin::PagesController do
       expect( response ).to render_template( LandingCat.config.admin_layout )
     end
 
-    it 'uses the configured before filter' do
-      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+    it 'uses the configured authorization' do
+      expect( @controller ).to receive( :instance_eval ).with( &LandingCat.config.authorize_with )
       get :new
     end
 
@@ -69,8 +69,8 @@ describe LandingCat::Admin::PagesController do
       expect( response ).to render_template( LandingCat.config.admin_layout )
     end
 
-    it 'uses the configured before filter' do
-      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+    it 'uses the configured authorization' do
+      expect( @controller ).to receive( :instance_eval ).with( &LandingCat.config.authorize_with )
       get :edit, { :id => page.to_param }
     end
 
@@ -78,8 +78,8 @@ describe LandingCat::Admin::PagesController do
 
   describe 'POST create' do
 
-    it 'uses the configured before filter' do
-      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+    it 'uses the configured authorization' do
+      expect( @controller ).to receive( :instance_eval ).with( &LandingCat.config.authorize_with )
       post :create, { :page => valid_attributes }
     end
 
@@ -131,8 +131,8 @@ describe LandingCat::Admin::PagesController do
 
   describe 'PUT update' do
 
-    it 'uses the configured before filter' do
-      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+    it 'uses the configured authorization' do
+      expect( @controller ).to receive( :instance_eval ).with( &LandingCat.config.authorize_with )
       put :update, {:id => page.to_param, :page => valid_attributes }
     end
 
@@ -193,8 +193,8 @@ describe LandingCat::Admin::PagesController do
       expect( response ).to redirect_to( admin_pages_url )
     end
 
-    it 'uses the configured before filter' do
-      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+    it 'uses the configured authorization' do
+      expect( @controller ).to receive( :instance_eval ).with( &LandingCat.config.authorize_with )
       delete :destroy, { :id => page.to_param }
     end
 

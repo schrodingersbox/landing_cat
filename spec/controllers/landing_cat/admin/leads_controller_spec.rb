@@ -28,8 +28,8 @@ describe LandingCat::Admin::LeadsController do
       expect( response ).to render_template( LandingCat.config.admin_layout )
     end
 
-    it 'uses the configured before filter' do
-      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+    it 'uses the configured authorization' do
+      expect( @controller ).to receive( :instance_eval ).with( &LandingCat.config.authorize_with )
       get :index
     end
 
@@ -53,8 +53,8 @@ describe LandingCat::Admin::LeadsController do
       expect( response ).to render_template( LandingCat.config.admin_layout )
     end
 
-    it 'uses the configured before filter' do
-      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+    it 'uses the configured authorization' do
+      expect( @controller ).to receive( :instance_eval ).with( &LandingCat.config.authorize_with )
       get :show, { :id => lead.to_param }
     end
 
@@ -73,8 +73,8 @@ describe LandingCat::Admin::LeadsController do
       expect( response ).to redirect_to( admin_leads_url )
     end
 
-    it 'uses the configured before filter' do
-      expect( @controller ).to receive( LandingCat.config.admin_before_filter )
+    it 'uses the configured authorization' do
+      expect( @controller ).to receive( :instance_eval ).with( &LandingCat.config.authorize_with )
       delete :destroy, { :id => lead.to_param }
     end
 
