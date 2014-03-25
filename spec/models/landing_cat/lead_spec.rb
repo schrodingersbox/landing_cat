@@ -18,6 +18,8 @@ describe LandingCat::Lead do
     it 'has columns' do
       should have_db_column( :id ).of_type( :integer )
       should have_db_column( :email ).of_type( :string )
+      should have_db_column( :first_name ).of_type( :string )
+      should have_db_column( :last_name ).of_type( :string )
       should have_db_column( :message ).of_type( :string )
       should have_db_column( :campaign_id ).of_type( :integer )
       should have_db_column( :page_id ).of_type( :integer )
